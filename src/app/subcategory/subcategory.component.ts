@@ -14,6 +14,7 @@ export class SubcategoryComponent implements OnInit {
   @Input() categoryID: any;
   @Input() subID: any;
   subCatData: any; 
+  defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
 	console.log("subcat");

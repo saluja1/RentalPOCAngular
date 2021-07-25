@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SubcategoryComponent } from './subcategory.component';
 import { RouterModule } from '@angular/router';
 import { SubcategoryRoutingModule } from './subcategory-routing.module';
-
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { SubcategoryRoutingModule } from './subcategory-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    SubcategoryRoutingModule
+    SubcategoryRoutingModule,
+    LazyLoadImageModule
   ]
 })
 export class SubcategoryModule { }

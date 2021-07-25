@@ -12,6 +12,7 @@ export class BranchComponent implements OnInit {
   branchID: any;
   locationID: any;
   categories: any; 
+  defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
   	console.log("branch");

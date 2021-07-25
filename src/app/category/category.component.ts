@@ -13,6 +13,7 @@ export class CategoryComponent implements OnInit {
   @Input() branchID: any;
   @Input() categoryID: any;
   subCategories: any; 
+  defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
 	  console.log("cat");

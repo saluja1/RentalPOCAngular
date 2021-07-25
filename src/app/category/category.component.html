@@ -19,11 +19,12 @@
             <ng-container *ngFor="let subcategory of subCategories; index as i">
                 <ng-container *ngFor="let subcat of subcategory['subcategories']">
                     <li>
-                        <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/subcategory/' + subcat.image+')'"></div>
+                        <div class="thumbnail" [defaultImage]="defaultImage" [lazyLoad]="'assets/category/subcategory/'+subcat.image" ></div>
+                        <!-- <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/subcategory/' + subcat.image+')'" [defaultImage]="defaultImage" [lazyLoad]="assets/category/subcategory/subcat.imag" ></div> -->
                         <div class="title"> <a routerLink="/location/{{locationID}}/branch/{{branchID}}/category/{{categoryID}}/sub/{{subcat.name}}">{{subcat.name}}</a> </div>
                     </li>
             </ng-container>
-        </ng-container>
+            </ng-container>
         </ul>
     </div>
 

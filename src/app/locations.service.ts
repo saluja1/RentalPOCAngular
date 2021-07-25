@@ -5,20 +5,22 @@ import  *  as  data  from  '../assets/catalog.json';
 import * as AddLocations from './action/locations.actions'
 import * as BreadCrumbActions from './action/breadcrumb.actions'
 import { Store, select } from '@ngrx/store';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocationsService {
-  locations: any = (data as any).default;
 
-  constructor(private store: Store<[]>) { }
+  constructor(private store: Store<[]>, private http: HttpClient) { }
 
   getLocations(){
-    this.store.dispatch(new AddLocations.AddLocations({locations: this.locations.data.locations}) );
+    return this.http.get<[]>("../assets/catalog.json");
+    // this.store.dispatch(new AddLocations.AddLocations({locations: this.locations.data.locations}) );
   }
-
+  addLocations(locationsData:[]){
+    this.store.dispatch(new AddLocations.AddLocations({locations: locationsData}) );
+  } 
   getBranches(locationID): Observable<any>{
     var locationsData = this.store.select((data)=> data['locationsData'].locations )
     return locationsData.pipe( map(x => x.filter(x => x["dealers_id"]==locationID)));    

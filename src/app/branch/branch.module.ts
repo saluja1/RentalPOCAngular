@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BranchComponent } from './branch.component';
 import { RouterModule } from '@angular/router';
 import { BranchRoutingModule } from './branch-routing.module';
-
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { BranchRoutingModule } from './branch-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    BranchRoutingModule
+    BranchRoutingModule,
+    LazyLoadImageModule
   ]
 })
 export class BranchModule { }

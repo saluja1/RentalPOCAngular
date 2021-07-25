@@ -15,16 +15,12 @@ export class HeaderComponent implements OnInit {
   
   constructor(public store:Store<{locations: []}>, private locationService:LocationsService) {
     console.log("header");
-
-    this.locationService.getLocations();
+    this.locationService.getLocations().subscribe(x => this.locationService.addLocations(x['data']['locations']) );
     this.locationService.addBreadcrumbs();
-    this.store.select((data)=> data['locationsData'].locations ).subscribe( (data) => this.locations = data )
-    console.log(this.locations);        
-
+    this.store.select((data)=> data['locationsData'].locations ).subscribe( (data) => this.locations = data );
   }
 
   OnInit(){
-
   }
 
   focusFunction() {    

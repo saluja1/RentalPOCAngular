@@ -16,6 +16,8 @@ import { SubcategoryModule } from './subcategory/subcategory.module';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbsModule } from './breadcrumbs/breadcrumbs.module';
 import { LocationmenublockModule } from './locationmenublock/locationmenublock.module';
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,15 @@ import { LocationmenublockModule } from './locationmenublock/locationmenublock.m
     RouterModule,
     BrowserModule,
     AppRoutingModule,
+    LazyLoadImageModule,
+    HttpClientModule,
+    
     HeaderModule,
     BreadcrumbsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [],
+  providers: [{ provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
