@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="catContent">
+        <ul class="content">
+            <ng-container *ngFor="let subCat of subCatData; index as i">
+                <li>
+                    <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/subcategory/' + subCat.image+')'"></div>
+                    <div class="title">{{subCat.name}}</div>
+                </li>
+        </ng-container>
+        </ul>
+    </div>
+</div>

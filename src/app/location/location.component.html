@@ -1,0 +1,23 @@
+<div class="container table-responsive py-5"> 
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Branches</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let branch of branches; index as i">
+            <tr>
+                <td scope="row">{{i+1}}</td>
+                <td>
+					<a routerLink="/location/{{locationID}}/branch/{{branch.branch_id}}" >{{branch.branch_id}}</a>                    
+                </td>
+              </tr>
+        </ng-container>
+        
+
+      </tbody>
+    </table>
+    </div>
+    

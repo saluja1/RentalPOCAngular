@@ -1,0 +1,25 @@
+<div class="locationBar">
+    <!-- <input name="text" placeholder="Location Here" type="text" (focus)="focusFunction()" (focusout)="focusOutFunction()"> -->
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select Location
+        </button>
+            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+              <ng-container *ngFor="let location of locations">
+                  <li class="dropdown-submenu">
+                      <a [routerLink]="['location', location.dealers_id]" tabindex="-1" routerLinkActive="active" class="dropdown-item" >{{location.name}}</a>
+                      <ul class="dropdown-menu">
+                          <ng-container *ngFor="let locationB of location.branches">
+                              <li class="">
+                                  <a tabindex="-1" routerLink="/location/{{location.dealers_id}}/branch/{{locationB.branch_id}}" routerLinkActive="active" class="dropdown-item" >{{locationB.name}}</a>
+                              </li>
+                          </ng-container>
+                      </ul>
+                  </li>
+              </ng-container>
+               </ul>
+    </div>  
+</div>
+
+

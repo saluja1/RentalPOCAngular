@@ -1,0 +1,30 @@
+<div class="container">
+
+    <div class="catContent">
+        <ul class="content">
+            <ng-container *ngFor="let catData of subCategories">
+                    <li>
+                        <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/' + catData.image+')'" ></div>
+                        <div class="title">{{catData.name}} </div>
+                    </li>
+        </ng-container>
+        </ul>
+    </div>
+
+    <div class="subCatContent">
+        <hr/>
+        <h3>Subcategories</h3>
+        <hr/>
+        <ul class="content">
+            <ng-container *ngFor="let subcategory of subCategories; index as i">
+                <ng-container *ngFor="let subcat of subcategory['subcategories']">
+                    <li>
+                        <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/subcategory/' + subcat.image+')'"></div>
+                        <div class="title"> <a routerLink="/location/{{locationID}}/branch/{{branchID}}/category/{{categoryID}}/sub/{{subcat.name}}">{{subcat.name}}</a> </div>
+                    </li>
+            </ng-container>
+        </ng-container>
+        </ul>
+    </div>
+
+</div>
