@@ -24,15 +24,9 @@ import { LocationmenublockModule } from './locationmenublock/locationmenublock.m
   imports: [
     RouterModule,
     BrowserModule,
-    HeaderModule,
-    LocationModule,
-    BranchModule,
     AppRoutingModule,
-    CategoryModule,
-    SubcategoryModule,
-    HomeModule,
+    HeaderModule,
     BreadcrumbsModule,
-    LocationmenublockModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],

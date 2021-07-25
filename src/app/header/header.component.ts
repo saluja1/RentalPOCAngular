@@ -14,10 +14,13 @@ export class HeaderComponent implements OnInit {
   locations:any;
   
   constructor(public store:Store<{locations: []}>, private locationService:LocationsService) {
+    console.log("header");
+
     this.locationService.getLocations();
     this.locationService.addBreadcrumbs();
     this.store.select((data)=> data['locationsData'].locations ).subscribe( (data) => this.locations = data )
     console.log(this.locations);        
+
   }
 
   OnInit(){

@@ -1,17 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BranchComponent } from './branch/branch.component';
-import { CategoryComponent } from './category/category.component';
 import { HomeComponent } from './home/home.component';
-import { LocationComponent } from './location/location.component';
-import { SubcategoryComponent } from './subcategory/subcategory.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent,},
-  {path: 'location/:locationID', component: LocationComponent},
-  {path: 'location/:locationID/branch/:branchID', component: BranchComponent},
-  {path: 'location/:locationID/branch/:branchID/category/:categoryID', component: CategoryComponent},
-  {path: 'location/:locationID/branch/:branchID/category/:categoryID/sub/:subID', component: SubcategoryComponent},
+  {
+    path: '',
+    loadChildren: () => import('./home/home.module').then(x => x.HomeModule)
+  },
+  {
+    path: 'location/:locationID',
+    loadChildren: () => import('./location/location.module').then(x => x.LocationModule)
+  },
+  {
+    path: 'location/:locationID/branch/:branchID',
+    loadChildren: () => import('./branch/branch.module').then(x => x.BranchModule)
+  },
+  {
+    path: 'location/:locationID/branch/:branchID/category/:categoryID',
+    loadChildren: () => import('./category/category.module').then(x => x.CategoryModule)
+  },
+  {
+    path: 'location/:locationID/branch/:branchID/category/:categoryID/sub/:subID',
+    loadChildren: () => import('./subcategory/subcategory.module').then(x => x.SubcategoryModule)
+  },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({

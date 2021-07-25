@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocationComponent } from './location.component';
 import { RouterModule } from '@angular/router';
-
+import { LocationRoutingModule } from './location-routing.module';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LocationRoutingModule
   ]
 })
 export class LocationModule { }

@@ -16,6 +16,7 @@ export class SubcategoryComponent implements OnInit {
   subCatData: any; 
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
+	console.log("subcat");
   }
 
 

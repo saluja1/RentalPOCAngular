@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BranchComponent } from './branch.component';
 import { RouterModule } from '@angular/router';
+import { BranchRoutingModule } from './branch-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BranchRoutingModule
   ]
 })
 export class BranchModule { }

@@ -13,6 +13,7 @@ export class LocationComponent implements OnInit, OnChanges {
   branches: any; 
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
+	  console.log("location");
   }
 
   ngOnChanges(){

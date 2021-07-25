@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LocationmenublockComponent implements OnInit {
   @Input() locations:any;
-  constructor() { }
+  constructor() { 
+  	console.log("location menu block");
+  }
 
   ngOnInit(): void {
-    console.log(this.locations)
   }
 
 }

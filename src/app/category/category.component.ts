@@ -15,6 +15,7 @@ export class CategoryComponent implements OnInit {
   subCategories: any; 
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
+	  console.log("cat");
   }
 
   ngOnInit(): void {

@@ -8,7 +8,9 @@ import { Store, select } from '@ngrx/store';
 })
 export class BreadcrumbsComponent implements OnInit {
 	breadCrumbData:any;
-  constructor(public store:Store<[]>) { }
+  constructor(public store:Store<[]>) { 
+  	console.log("breadcrumb");
+  }
 
   ngOnInit(): void {
     this.store.select((data)=> data['braedCrumbData'] ).subscribe( (dataX) => this.breadCrumbData = dataX )

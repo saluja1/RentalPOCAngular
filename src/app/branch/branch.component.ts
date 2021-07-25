@@ -13,7 +13,9 @@ export class BranchComponent implements OnInit {
   locationID: any;
   categories: any; 
 
-  constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) { }
+  constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
+  	console.log("branch");
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
