@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationsService } from '../locations.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
-    	console.log("home");
-   }
+    constructor( private locationService: LocationsService) {
+      this.locationService.addBreadcrumbs();
+    }
 
   ngOnInit(): void {
   }
