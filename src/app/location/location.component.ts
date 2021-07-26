@@ -10,6 +10,7 @@ import {Location} from '@angular/common';
 })
 export class LocationComponent implements OnInit, OnChanges {
   @Input() locationID: any;
+  @Input() locationName: any;
   branches: any; 
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
@@ -22,8 +23,11 @@ export class LocationComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.locationID = params.get('locationID');
-      this.locationService.getBranches(this.locationID).subscribe(x => this.branches = x[0]["branches"]);
-      this.locationService.addBreadcrumbs(this.locationID);
+      this.locationService.getBranches(this.locationID).subscribe(x => { 
+         this.branches = x[0]["branches"];
+      });
+      this.locationService.getLocationbyID(this.locationID).subscribe(x => this.locationName = x[0])
+      this.locationService.addBreadcrumbs(this.locationID, this.locationName);
       if(this.branches == undefined){
         this._location.back();
       }

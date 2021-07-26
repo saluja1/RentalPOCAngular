@@ -10,6 +10,8 @@ import {Location} from '@angular/common';
 })
 export class SubcategoryComponent implements OnInit {
   @Input() locationID: any;
+  @Input() locationName: any;
+  @Input() branchName: any;
   @Input() branchID: any;
   @Input() categoryID: any;
   @Input() subID: any;
@@ -28,7 +30,9 @@ export class SubcategoryComponent implements OnInit {
       this.categoryID = params.get('categoryID');
       this.subID = params.get('subID');
       this.locationService.getSubCategoryData(this.locationID, this.branchID, this.categoryID, this.subID).subscribe(x => this.subCatData = x.flat(4));
-      this.locationService.addBreadcrumbs(this.locationID, this.branchID, this.categoryID, this.subID);
+      this.locationService.getLocationbyID(this.locationID).subscribe(x => this.locationName = x[0])
+      this.locationService.getBranchbyID(this.locationID, this.branchID).subscribe(x => this.branchName = x[0])
+      this.locationService.addBreadcrumbs( this.locationID, this.locationName, this.branchID, this.branchName, this.categoryID, this.subID);
       if(this.subCatData.length < 1){
         this._location.back();
       }

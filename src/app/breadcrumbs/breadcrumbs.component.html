@@ -1,7 +1,7 @@
 <ul id="breadcrumbs">
   <li><a routerLink="/">Home</a></li>
-  <li *ngIf="breadCrumbData.location" ><a routerLink="/location/{{breadCrumbData.location}}">{{breadCrumbData.location}}</a></li>
-  <li *ngIf="breadCrumbData.branch"><a routerLink="/location/{{breadCrumbData.location}}/branch/{{breadCrumbData.branch}}" >{{breadCrumbData.branch}}</a></li>
-  <li *ngIf="breadCrumbData.category"><a routerLink="/location/{{breadCrumbData.location}}/branch/{{breadCrumbData.branch}}/category/{{breadCrumbData.category}}" >{{breadCrumbData.category}}</a></li>
+  <li *ngIf="breadCrumbData.location" ><a routerLink="/location/{{breadCrumbData.locationID}}">{{breadCrumbData.location}}</a></li>
+  <li *ngIf="breadCrumbData.branch"><a routerLink="/location/{{breadCrumbData.locationID}}/branch/{{breadCrumbData.branchID}}" >{{breadCrumbData.branch}}</a></li>
+  <li *ngIf="breadCrumbData.category"><a routerLink="/location/{{breadCrumbData.locationID}}/branch/{{breadCrumbData.branchID}}/category/{{breadCrumbData.category}}" >{{breadCrumbData.category}}</a></li>
   <li *ngIf="breadCrumbData.subcat">{{breadCrumbData.subcat}}</li>
 </ul>
