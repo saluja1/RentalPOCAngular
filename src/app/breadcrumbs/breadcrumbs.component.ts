@@ -14,7 +14,6 @@ export class BreadcrumbsComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select((data)=> data['braedCrumbData'] ).subscribe( (dataX) => this.breadCrumbData = dataX )
-    console.log(this.breadCrumbData);        
   }
 
 }

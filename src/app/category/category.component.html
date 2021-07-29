@@ -4,7 +4,7 @@
         <ul class="content">
             <ng-container *ngFor="let catData of subCategories">
                     <li>
-                        <div class="thumbnail" [style.background-image]="'url('+ 'assets/category/' + catData.image+')'" ></div>
+                        <div class="thumbnail" [defaultImage]="defaultImage" [lazyLoad]="'assets/category/'+catData.image"></div>
                         <div class="title">{{catData.name}} </div>
                     </li>
         </ng-container>

@@ -19,21 +19,21 @@ export class LocationsService {
 
   getLocations(){
     return this.http.get<[]>("../assets/catalog.json");
-    // this.store.dispatch(new AddLocations.AddLocations({locations: this.locations.data.locations}) );
   }
+
   addLocations(locationsData:[]){
     this.store.dispatch(new AddLocations.AddLocations({locations: locationsData}) );
   } 
+
   getBranches(locationID): Observable<any>{
     var locationsData = this.store.select((data)=> data['locationsData'].locations )
     return locationsData = locationsData.pipe( 
       map(x => x.filter(x =>
         x["dealers_id"]==locationID
        )
-      ));    
-      locationsData.pipe( map(x => console.log(x)))
-      return;
-    }
+      )
+    );    
+  }
 
   getCategories(locationID , branchID): Observable<any>{
     var locationsData = this.store.select((data)=> data['locationsData'].locations )

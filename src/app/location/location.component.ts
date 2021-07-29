@@ -31,7 +31,6 @@ export class LocationComponent implements OnInit, OnChanges {
       if(this.branches == undefined){
         this._location.back();
       }
-
     });
   }
 

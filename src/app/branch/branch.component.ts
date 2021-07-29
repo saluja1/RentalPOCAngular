@@ -14,7 +14,7 @@ export class BranchComponent implements OnInit {
   locationID: any;
   locationName: any;
   categories: any; 
-  defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
+  defaultImage = '../../assets/loader.gif';
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
   	console.log("branch");
@@ -28,7 +28,7 @@ export class BranchComponent implements OnInit {
       this.locationService.getLocationbyID(this.locationID).subscribe(x => this.locationName = x[0])
       this.locationService.addBreadcrumbs(this.locationID, this.locationName, this.branchID, this.branchName);
       if(this.categories == undefined){
-        // this._location.back();
+        this._location.back();
       }
     });
   }

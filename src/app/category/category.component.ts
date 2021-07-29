@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   @Input() branchName: any;
   @Input() categoryID: any;
   subCategories: any; 
-  defaultImage = 'https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif';
+  defaultImage = '../../assets/loader.gif';
 
   constructor(private _location: Location, private route: ActivatedRoute, private router: Router, private locationService: LocationsService ) {
     console.log("gere")
@@ -28,8 +28,8 @@ export class CategoryComponent implements OnInit {
       this.categoryID = params.get('categoryID');
       console.log("here")
       this.locationService.getSubCategories(this.locationID, this.branchID, this.categoryID).subscribe(x => this.subCategories = x.flat(3));
-      this.locationService.getLocationbyID(this.locationID).subscribe(x => this.locationName = x[0])
-      this.locationService.getBranchbyID(this.locationID, this.branchID).subscribe(x => this.branchName = x[0])
+      this.locationService.getLocationbyID(this.locationID).subscribe(x => this.locationName = x.flat()[0])
+      this.locationService.getBranchbyID(this.locationID, this.branchID).subscribe(x => this.branchName = x.flat()[0])
       this.locationService.addBreadcrumbs(this.locationID, this.locationName, this.branchID, this.branchName, this.categoryID);
       if(this.subCategories.length < 1){
         this._location.back();
